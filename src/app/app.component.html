@@ -1,0 +1,8 @@
+<main class="shell">
+  <app-hero />
+  @for (c of categories(); track c.id) {
+    <app-portfolio-section [category]="c" />
+  }
+</main>
+
+<app-lightbox />

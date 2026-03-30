@@ -1,0 +1,17 @@
+<section
+  class="collection"
+  [attr.aria-labelledby]="'collection-' + category().id"
+>
+  <header class="collection__head" appRevealOnScroll>
+    <h2 class="collection__title" [id]="'collection-' + category().id">
+      {{ category().title }}
+    </h2>
+    @if (category().subtitle) {
+      <p class="collection__subtitle">{{ category().subtitle }}</p>
+    }
+  </header>
+
+  <div class="collection__grid">
+    <app-photo-grid [photos]="category().photos" />
+  </div>
+</section>

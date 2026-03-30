@@ -1,0 +1,49 @@
+<div
+  class="lightbox"
+  [class.lightbox--open]="lightbox.isOpen()"
+  role="dialog"
+  aria-modal="true"
+  [attr.aria-hidden]="!lightbox.isOpen()"
+  [attr.aria-label]="lightbox.current()?.alt ?? 'Photograph'"
+  (click)="onBackdrop($event)"
+>
+  @if (lightbox.isOpen() && lightbox.current(); as photo) {
+    <button
+      type="button"
+      class="lightbox__close"
+      (click)="lightbox.close(); $event.stopPropagation()"
+      aria-label="Close"
+    >
+      <span class="lightbox__close-mark" aria-hidden="true"></span>
+    </button>
+
+    <button
+      type="button"
+      class="lightbox__nav lightbox__nav--prev"
+      (click)="lightbox.prev(); stopNavClick($event)"
+      aria-label="Previous photograph"
+    >
+      <span class="lightbox__chev" aria-hidden="true"></span>
+    </button>
+
+    <button
+      type="button"
+      class="lightbox__nav lightbox__nav--next"
+      (click)="lightbox.next(); stopNavClick($event)"
+      aria-label="Next photograph"
+    >
+      <span class="lightbox__chev" aria-hidden="true"></span>
+    </button>
+
+    <div class="lightbox__stage" (click)="stopNavClick($event)">
+      <img
+        class="lightbox__img"
+        [class.lightbox__img--ready]="imgReady()"
+        [src]="src()"
+        [alt]="photo.alt"
+        decoding="async"
+        (load)="onImgLoad()"
+      />
+    </div>
+  }
+</div>

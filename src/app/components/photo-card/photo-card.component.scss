@@ -1,0 +1,100 @@
+.photo-card {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  -webkit-tap-highlight-color: transparent;
+
+  &:focus-visible {
+    outline: 1px solid rgba(234, 234, 234, 0.35);
+    outline-offset: 4px;
+  }
+
+  &__inner {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 5rem;
+    background: var(--color-elevated);
+    overflow: hidden;
+  }
+
+  &__img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: min(42vw, 420px);
+    transition: transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  @media (min-width: 900px) {
+    &__img {
+      max-height: min(32vw, 400px);
+    }
+  }
+
+  @media (max-width: 599px) {
+    &__img {
+      max-height: min(58vw, 380px);
+    }
+  }
+
+  &:hover .photo-card__img,
+  &:focus-visible .photo-card__img {
+    transform: scale(1.012);
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    padding: clamp(0.85rem, 2.2vw, 1.15rem);
+    background: linear-gradient(
+      to top,
+      rgba(5, 5, 5, 0.72) 0%,
+      rgba(5, 5, 5, 0.35) 42%,
+      transparent 100%
+    );
+    opacity: 0;
+    transition: opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+    pointer-events: none;
+  }
+
+  &:hover .photo-card__overlay,
+  &:focus-visible .photo-card__overlay {
+    opacity: 1;
+  }
+
+  &__meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  &__line {
+    font-size: 0.65rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(234, 234, 234, 0.88);
+    font-weight: 400;
+    line-height: 1.35;
+
+    &--lens {
+      margin-top: 0.35rem;
+      letter-spacing: 0.08em;
+      text-transform: none;
+      font-size: 0.7rem;
+      color: rgba(234, 234, 234, 0.72);
+    }
+  }
+}
