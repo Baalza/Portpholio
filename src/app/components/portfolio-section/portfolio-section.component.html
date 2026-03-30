@@ -12,6 +12,6 @@
   </header>
 
   <div class="collection__grid">
-    <app-photo-grid [photos]="category().photos" />
+    <app-photo-grid [mode]="horizontal() ? 'rail' : 'grid'" [photos]="category().photos" />
   </div>
 </section>

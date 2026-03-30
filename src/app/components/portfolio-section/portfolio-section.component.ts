@@ -12,4 +12,5 @@ import { RevealOnScrollDirective } from '../../directives/reveal-on-scroll.direc
 })
 export class PortfolioSectionComponent {
   readonly category = input.required<Category>();
+  readonly horizontal = input(false);
 }

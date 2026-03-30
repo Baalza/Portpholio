@@ -1,7 +1,72 @@
 <main class="shell">
-  <app-hero />
-  @for (c of categories(); track c.id) {
-    <app-portfolio-section [category]="c" />
+  <section class="portfolio-head">
+    <h2 class="portfolio-head__title">portPHolio</h2>
+  </section>
+
+  <app-profile-section />
+
+  <section class="actions-wrap" aria-label="Portfolio actions">
+    <div class="view-toggle" role="tablist" aria-label="View actions">
+      <button
+        type="button"
+        class="view-toggle__btn"
+        [class.view-toggle__btn--active]="activeAction === 'rails'"
+        [attr.aria-selected]="activeAction === 'rails'"
+        role="tab"
+        title="Horizontal action"
+        (click)="setAction('rails')"
+      >
+        <svg
+          class="view-toggle__svg"
+          viewBox="0 0 20 20"
+          width="20"
+          height="20"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+        >
+          <line x1="3" y1="5.5" x2="17" y2="5.5" stroke="currentColor" stroke-width="1.15" stroke-linecap="round" />
+          <line x1="3" y1="10" x2="17" y2="10" stroke="currentColor" stroke-width="1.15" stroke-linecap="round" />
+          <line x1="3" y1="14.5" x2="17" y2="14.5" stroke="currentColor" stroke-width="1.15" stroke-linecap="round" />
+        </svg>
+        <span class="sr-only">Horizontal action</span>
+      </button>
+      <button
+        type="button"
+        class="view-toggle__btn"
+        [class.view-toggle__btn--active]="activeAction === 'grid'"
+        [attr.aria-selected]="activeAction === 'grid'"
+        role="tab"
+        title="Grid action"
+        (click)="setAction('grid')"
+      >
+        <svg
+          class="view-toggle__svg"
+          viewBox="0 0 20 20"
+          width="20"
+          height="20"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+        >
+          <rect x="2.5" y="2.5" width="6" height="6" rx="0.75" stroke="currentColor" stroke-width="1.15" />
+          <rect x="11.5" y="2.5" width="6" height="6" rx="0.75" stroke="currentColor" stroke-width="1.15" />
+          <rect x="2.5" y="11.5" width="6" height="6" rx="0.75" stroke="currentColor" stroke-width="1.15" />
+          <rect x="11.5" y="11.5" width="6" height="6" rx="0.75" stroke="currentColor" stroke-width="1.15" />
+        </svg>
+        <span class="sr-only">Grid action</span>
+      </button>
+    </div>
+  </section>
+
+  @if (activeAction === 'grid') {
+    <section class="all-photos">
+      <app-photo-grid [photos]="allPhotos()" />
+    </section>
+  } @else {
+    @for (c of categories(); track c.id) {
+      <app-portfolio-section [category]="c" [horizontal]="true" />
+    }
   }
 </main>
 

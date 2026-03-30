@@ -12,12 +12,14 @@
 
   &__portrait {
     flex-shrink: 0;
-    width: 72px;
-    height: 72px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
     object-fit: cover;
-    opacity: 0.92;
-    filter: grayscale(0.15);
+    object-position: center 20%;
+    opacity: 0.94;
+    filter: grayscale(0.12);
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08);
   }
 
   &__text {

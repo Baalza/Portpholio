@@ -7,21 +7,23 @@
   [attr.aria-label]="'Open photograph: ' + photo().alt"
 >
   <span class="photo-card__inner">
-    <img
-      class="photo-card__img"
-      [src]="photo().src"
-      [alt]="photo().alt"
-      loading="lazy"
-      decoding="async"
-      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-    />
-    <span class="photo-card__overlay" aria-hidden="true">
-      <span class="photo-card__meta">
-        <span class="photo-card__line">ISO {{ photo().iso }}</span>
-        <span class="photo-card__line">{{ photo().aperture }}</span>
-        <span class="photo-card__line">{{ photo().shutterSpeed }}</span>
-        <span class="photo-card__line">{{ photo().focalLength }}</span>
-        <span class="photo-card__line photo-card__line--lens">{{ photo().lensName }}</span>
+    <span class="photo-card__media">
+      <img
+        class="photo-card__img"
+        [src]="photo().src"
+        [alt]="photo().alt"
+        loading="lazy"
+        decoding="async"
+        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+      />
+      <span class="photo-card__overlay" aria-hidden="true">
+        <span class="photo-card__meta">
+          <span class="photo-card__line">ISO {{ photo().iso }}</span>
+          <span class="photo-card__line">{{ photo().aperture }}</span>
+          <span class="photo-card__line">{{ photo().shutterSpeed }}</span>
+          <span class="photo-card__line">{{ photo().focalLength }}</span>
+          <span class="photo-card__line photo-card__line--lens">{{ photo().lensName }}</span>
+        </span>
       </span>
     </span>
   </span>

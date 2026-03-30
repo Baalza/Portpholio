@@ -58,7 +58,12 @@ body {
     transition: none;
   }
 
-  .hero {
+  .hero,
+  .profile__bg {
     animation: none !important;
+  }
+
+  .profile__bg {
+    transform: none !important;
   }
 }

@@ -1,0 +1,43 @@
+<section class="profile" aria-labelledby="profile-heading">
+  <div class="profile__bg" aria-hidden="true" [style.background-image]="'url(' + site.profileBackgroundSrc + ')'"></div>
+  <div class="profile__scrim" aria-hidden="true"></div>
+
+  <div class="profile__inner">
+    <aside class="profile-card">
+      <!--<div class="profile-card__ribbon">{{ site.profileCardLabel }}</div>-->
+      <div class="profile-card__photo">
+        <img [src]="site.profileCardPortraitSrc" [alt]="site.portraitAlt" width="320" height="320" loading="eager"
+          decoding="async" sizes="(max-width: 900px) min(100vw - 3rem, 360px), 320px" />
+      </div>
+      <div class="profile-card__footer">
+        <h2 class="profile-card__name">{{ site.profileNameDisplay }}</h2>
+        <div class="profile-card__rule" role="presentation"></div>
+        <p class="profile-card__social">{{ site.profileSocialLine }}</p>
+      </div>
+    </aside>
+
+    <div class="profile-about">
+      <h2 class="profile-about__title" id="profile-heading">{{ site.profileHeading }}</h2>
+
+      <div class="profile-about__meta">
+        <p class="profile-about__meta-line">
+          <span class="profile-about__label">Age:</span>
+          {{ site.profileAge }}
+          <span class="profile-about__sep" aria-hidden="true"></span>
+          <span class="profile-about__label">Experience:</span>
+          {{ site.profileExperience }}
+        </p>
+        <p class="profile-about__meta-line profile-about__meta-line--spec">
+          <span class="profile-about__label">Specialization:</span>
+          {{ site.profileSpecializations.join(' · ') }}
+        </p>
+      </div>
+
+      <div class="profile-about__bio">
+        @for (p of site.profileBio; track $index) {
+        <p>{{ p }}</p>
+        }
+      </div>
+    </div>
+  </div>
+</section>

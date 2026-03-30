@@ -1,4 +1,8 @@
-<div class="photo-grid" role="list">
+<div
+  class="photo-grid"
+  [class.photo-grid--rail]="mode() === 'rail'"
+  role="list"
+>
   @for (p of photos(); track p.id; let i = $index) {
     <div class="photo-grid__cell" role="listitem">
       <app-photo-card [photo]="p" [appStaggerMs]="i * 48" />

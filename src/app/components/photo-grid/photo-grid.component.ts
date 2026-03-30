@@ -11,4 +11,5 @@ import { PhotoCardComponent } from '../photo-card/photo-card.component';
 })
 export class PhotoGridComponent {
   readonly photos = input.required<Photo[]>();
+  readonly mode = input<'grid' | 'rail'>('grid');
 }

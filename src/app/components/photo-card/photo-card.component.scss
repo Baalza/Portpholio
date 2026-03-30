@@ -17,34 +17,28 @@
   }
 
   &__inner {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 5rem;
+    display: block;
+    width: 100%;
+    height: 350px;
     background: var(--color-elevated);
     overflow: hidden;
   }
 
+  &__media {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    line-height: 0;
+  }
+
   &__img {
     display: block;
-    width: auto;
-    height: auto;
-    max-width: 100%;
-    max-height: min(42vw, 420px);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
     transition: transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-
-  @media (min-width: 900px) {
-    &__img {
-      max-height: min(32vw, 400px);
-    }
-  }
-
-  @media (max-width: 599px) {
-    &__img {
-      max-height: min(58vw, 380px);
-    }
   }
 
   &:hover .photo-card__img,
