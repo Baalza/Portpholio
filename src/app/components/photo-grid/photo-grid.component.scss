@@ -18,4 +18,16 @@
   .photo-grid--rail {
     grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
   }
+
+  /* Global grid view only: 4 thumbnails per row on small screens */
+  .photo-grid:not(.photo-grid--rail) {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: clamp(0.35rem, 2vw, 0.55rem);
+
+    ::ng-deep app-photo-card .photo-card__inner {
+      height: auto;
+      aspect-ratio: 1 / 1;
+      max-height: min(28vw, 7.5rem);
+    }
+  }
 }
