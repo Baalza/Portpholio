@@ -1,9 +1,10 @@
 <button
   type="button"
   class="photo-card"
+  [class.photo-card--info-visible]="infoVisible()"
   appRevealOnScroll
   [appRevealDelay]="staggerMs()"
-  (click)="open()"
+  (click)="onCardClick($event)"
   [attr.aria-label]="'Open photograph: ' + photo().alt"
 >
   <span class="photo-card__inner">

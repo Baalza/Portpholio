@@ -71,6 +71,15 @@
     opacity: 1;
   }
 
+  &--info-visible .photo-card__overlay,
+  &--info-visible .photo-card__img {
+    opacity: 1;
+  }
+
+  &--info-visible .photo-card__img {
+    transform: scale(1.012);
+  }
+
   &__meta {
     display: flex;
     flex-direction: column;
