@@ -58,7 +58,13 @@
       </button>
     </div>
 
-    <div class="section-menu">
+    <span id="section-menu-sentinel" class="section-menu__sentinel" aria-hidden="true"></span>
+
+    <div
+      id="section-menu-anchor"
+      class="section-menu"
+      [class.section-menu--sticky]="menuSticky()"
+    >
       <button
         type="button"
         class="section-menu__trigger"
