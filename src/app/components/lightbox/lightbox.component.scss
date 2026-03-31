@@ -62,6 +62,7 @@
     align-items: center;
     gap: 0.2rem;
     z-index: 2;
+    touch-action: manipulation;
   }
 
   &__zoom-btn {
@@ -77,6 +78,9 @@
     padding: 0 0.55rem;
     cursor: pointer;
     transition: border-color 0.2s ease;
+    touch-action: manipulation;
+    -webkit-user-select: none;
+    user-select: none;
 
     &:hover,
     &:focus-visible {

@@ -17,11 +17,12 @@
       <span class="lightbox__close-mark" aria-hidden="true"></span>
     </button>
 
-    <div class="lightbox__zoom" (click)="stopNavClick($event)">
+    <div class="lightbox__zoom" (click)="stopNavClick($event)" (dblclick)="preventControlDoubleTap($event)">
       <button
         type="button"
         class="lightbox__zoom-btn"
         (click)="zoomOut()"
+        (dblclick)="preventControlDoubleTap($event)"
         [disabled]="zoom() <= 1"
         aria-label="Zoom out"
       >
@@ -31,6 +32,7 @@
         type="button"
         class="lightbox__zoom-btn"
         (click)="resetZoom()"
+        (dblclick)="preventControlDoubleTap($event)"
         [disabled]="zoom() === 1"
         aria-label="Reset zoom"
       >
@@ -40,6 +42,7 @@
         type="button"
         class="lightbox__zoom-btn"
         (click)="zoomIn()"
+        (dblclick)="preventControlDoubleTap($event)"
         [disabled]="zoom() >= 3"
         aria-label="Zoom in"
       >

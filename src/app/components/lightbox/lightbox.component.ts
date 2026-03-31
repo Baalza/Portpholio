@@ -78,6 +78,11 @@ export class LightboxComponent {
     e.stopPropagation();
   }
 
+  preventControlDoubleTap(e: MouseEvent): void {
+    e.preventDefault();
+    e.stopPropagation();
+  }
+
   zoomIn(): void {
     this.zoom.update((z) => Math.min(3, +(z + 0.25).toFixed(2)));
   }
