@@ -28,6 +28,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+
+    &--zoomed {
+      cursor: grab;
+      touch-action: none;
+    }
+
+    &--panning {
+      cursor: grabbing;
+    }
   }
 
   &__img {
@@ -39,14 +49,17 @@
     object-fit: contain;
     opacity: 0;
     --zoom: 1;
-    transform: scale(calc(0.985 * var(--zoom)));
+    --pan-x: 0px;
+    --pan-y: 0px;
+    transform: translate(var(--pan-x), var(--pan-y)) scale(calc(0.985 * var(--zoom)));
+    will-change: transform;
     transition:
       opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
       transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
 
     &--ready {
       opacity: 1;
-      transform: scale(var(--zoom));
+      transform: translate(var(--pan-x), var(--pan-y)) scale(var(--zoom));
     }
 
     &--zoomed {

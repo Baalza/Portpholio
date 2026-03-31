@@ -68,14 +68,29 @@
       <span class="lightbox__chev" aria-hidden="true"></span>
     </button>
 
-    <div class="lightbox__stage" (click)="stopNavClick($event)" (wheel)="onWheel($event)">
+    <div
+      #stage
+      class="lightbox__stage"
+      [class.lightbox__stage--zoomed]="zoom() > 1"
+      [class.lightbox__stage--panning]="isPanning()"
+      (click)="stopNavClick($event)"
+      (wheel)="onWheel($event)"
+      (pointerdown)="onPanStart($event)"
+      (pointermove)="onPanMove($event)"
+      (pointerup)="onPanEnd($event)"
+      (pointercancel)="onPanEnd($event)"
+      (pointerleave)="onPanEnd($event)"
+    >
       <img
+        #img
         class="lightbox__img"
         [class.lightbox__img--ready]="imgReady()"
         [class.lightbox__img--zoomed]="zoom() > 1"
         [src]="src()"
         [alt]="photo.alt"
         [style.--zoom]="zoom()"
+        [style.--pan-x]="panX() + 'px'"
+        [style.--pan-y]="panY() + 'px'"
         decoding="async"
         (load)="onImgLoad()"
       />
