@@ -1,4 +1,4 @@
-<main class="shell">
+<main class="shell" id="page-top">
   <section class="portfolio-head">
     <h2 class="portfolio-head__title">portPHolio</h2>
   </section>
@@ -56,6 +56,35 @@
         </svg>
         <span class="sr-only">Grid action</span>
       </button>
+    </div>
+
+    <div class="section-menu">
+      <button
+        type="button"
+        class="section-menu__trigger"
+        [attr.aria-expanded]="menuOpen()"
+        aria-haspopup="menu"
+        (click)="toggleMenu()"
+      >
+        <span>Menu</span>
+        <span class="section-menu__chevron" [class.section-menu__chevron--open]="menuOpen()" aria-hidden="true"></span>
+      </button>
+
+      @if (menuOpen()) {
+        <div class="section-menu__panel" role="menu" aria-label="Sections and subsections">
+          @for (item of navItems(); track item.id) {
+            <button
+              type="button"
+              class="section-menu__item"
+              [class.section-menu__item--sub]="item.isSub"
+              role="menuitem"
+              (click)="navigateTo(item.id)"
+            >
+              {{ item.label }}
+            </button>
+          }
+        </div>
+      }
     </div>
   </section>
 

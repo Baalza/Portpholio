@@ -21,6 +21,7 @@ export class LightboxComponent {
   private readonly doc = inject(DOCUMENT);
 
   readonly imgReady = signal(false);
+  readonly zoom = signal(1);
 
   readonly src = computed(() => {
     const p = this.lightbox.current();
@@ -32,6 +33,7 @@ export class LightboxComponent {
       this.lightbox.current();
       this.lightbox.index();
       this.imgReady.set(false);
+      this.zoom.set(1);
     });
 
     effect(() => {
@@ -54,6 +56,14 @@ export class LightboxComponent {
       e.preventDefault();
       this.lightbox.prev();
     }
+    if (e.key === '+' || e.key === '=') {
+      e.preventDefault();
+      this.zoomIn();
+    }
+    if (e.key === '-' || e.key === '_') {
+      e.preventDefault();
+      this.zoomOut();
+    }
   }
 
   onBackdrop(e: MouseEvent): void {
@@ -66,5 +76,27 @@ export class LightboxComponent {
 
   stopNavClick(e: MouseEvent): void {
     e.stopPropagation();
+  }
+
+  zoomIn(): void {
+    this.zoom.update((z) => Math.min(3, +(z + 0.25).toFixed(2)));
+  }
+
+  zoomOut(): void {
+    this.zoom.update((z) => Math.max(1, +(z - 0.25).toFixed(2)));
+  }
+
+  resetZoom(): void {
+    this.zoom.set(1);
+  }
+
+  onWheel(e: WheelEvent): void {
+    if (!this.lightbox.isOpen()) return;
+    e.preventDefault();
+    if (e.deltaY < 0) {
+      this.zoomIn();
+    } else {
+      this.zoomOut();
+    }
   }
 }

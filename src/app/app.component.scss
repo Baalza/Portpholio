@@ -20,6 +20,7 @@
 .actions-wrap {
   display: grid;
   justify-items: center;
+  row-gap: 0.9rem;
   padding: clamp(2.75rem, 9vh, 5.5rem) clamp(1.5rem, 6vw, 4rem) clamp(2.1rem, 6vh, 3.25rem);
 }
 
@@ -86,6 +87,86 @@
   max-width: 118rem;
   margin: 0 auto;
   padding: 0 clamp(1.5rem, 6vw, 4rem) clamp(4.5rem, 12vh, 7rem);
+}
+
+.section-menu {
+  position: relative;
+  display: grid;
+  justify-items: center;
+
+  &__trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.02);
+    color: rgba(234, 234, 234, 0.8);
+    font: inherit;
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.72rem;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+
+    &:hover,
+    &:focus-visible {
+      border-color: rgba(255, 255, 255, 0.26);
+      outline: none;
+    }
+  }
+
+  &__chevron {
+    width: 0.42rem;
+    height: 0.42rem;
+    border-right: 1px solid currentColor;
+    border-bottom: 1px solid currentColor;
+    transform: rotate(45deg) translateY(-1px);
+    transition: transform 0.2s ease;
+
+    &--open {
+      transform: rotate(225deg) translateY(-1px);
+    }
+  }
+
+  &__panel {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    min-width: 14rem;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 0.6rem;
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(8px);
+    padding: 0.35rem;
+    display: grid;
+    gap: 0.12rem;
+    z-index: 5;
+  }
+
+  &__item {
+    border: none;
+    background: transparent;
+    color: rgba(234, 234, 234, 0.88);
+    font: inherit;
+    font-size: 0.74rem;
+    text-align: left;
+    padding: 0.42rem 0.55rem;
+    border-radius: 0.35rem;
+    cursor: pointer;
+    transition: background 0.15s ease;
+
+    &:hover,
+    &:focus-visible {
+      background: rgba(255, 255, 255, 0.08);
+      outline: none;
+    }
+
+    &--sub {
+      padding-left: 1.1rem;
+      color: rgba(234, 234, 234, 0.7);
+    }
+  }
 }
 
 .sr-only {

@@ -17,6 +17,36 @@
       <span class="lightbox__close-mark" aria-hidden="true"></span>
     </button>
 
+    <div class="lightbox__zoom" (click)="stopNavClick($event)">
+      <button
+        type="button"
+        class="lightbox__zoom-btn"
+        (click)="zoomOut()"
+        [disabled]="zoom() <= 1"
+        aria-label="Zoom out"
+      >
+        -
+      </button>
+      <button
+        type="button"
+        class="lightbox__zoom-btn"
+        (click)="resetZoom()"
+        [disabled]="zoom() === 1"
+        aria-label="Reset zoom"
+      >
+        {{ (zoom() * 100).toFixed(0) }}%
+      </button>
+      <button
+        type="button"
+        class="lightbox__zoom-btn"
+        (click)="zoomIn()"
+        [disabled]="zoom() >= 3"
+        aria-label="Zoom in"
+      >
+        +
+      </button>
+    </div>
+
     <button
       type="button"
       class="lightbox__nav lightbox__nav--prev"
@@ -35,12 +65,14 @@
       <span class="lightbox__chev" aria-hidden="true"></span>
     </button>
 
-    <div class="lightbox__stage" (click)="stopNavClick($event)">
+    <div class="lightbox__stage" (click)="stopNavClick($event)" (wheel)="onWheel($event)">
       <img
         class="lightbox__img"
         [class.lightbox__img--ready]="imgReady()"
+        [class.lightbox__img--zoomed]="zoom() > 1"
         [src]="src()"
         [alt]="photo.alt"
+        [style.--zoom]="zoom()"
         decoding="async"
         (load)="onImgLoad()"
       />

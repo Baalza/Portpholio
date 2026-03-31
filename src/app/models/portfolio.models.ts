@@ -16,9 +16,17 @@ export interface Photo {
   alt: string;
 }
 
+export interface Subcategory {
+  id: string;
+  title: string;
+  subtitle?: string;
+  photos: Photo[];
+}
+
 export interface Category {
   id: string;
   title: string;
   subtitle?: string;
   photos: Photo[];
+  subcategories?: Subcategory[];
 }

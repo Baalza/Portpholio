@@ -11,7 +11,11 @@ export class PortfolioService {
 
   /** Exhibition order: categories top-to-bottom, photos left-to-right within each. */
   readonly photosInOrder = computed(() =>
-    this.categories().flatMap((c) => c.photos),
+    this.categories().flatMap((c) =>
+      c.subcategories?.length
+        ? c.subcategories.flatMap((s) => s.photos)
+        : c.photos,
+    ),
   );
 
   setCategories(next: Category[]): void {
