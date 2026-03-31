@@ -19,11 +19,24 @@
       />
       <span class="photo-card__overlay" aria-hidden="true">
         <span class="photo-card__meta">
-          <span class="photo-card__line">ISO {{ photo().iso }}</span>
-          <span class="photo-card__line">{{ photo().aperture }}</span>
-          <span class="photo-card__line">{{ photo().shutterSpeed }}</span>
-          <span class="photo-card__line">{{ photo().focalLength }}</span>
-          <span class="photo-card__line photo-card__line--lens">{{ photo().lensName }}</span>
+          @if (photo().iso) {
+            <span class="photo-card__line">ISO {{ photo().iso }}</span>
+          }
+          @if (photo().aperture) {
+            <span class="photo-card__line">{{ photo().aperture }}</span>
+          }
+          @if (photo().shutterSpeed) {
+            <span class="photo-card__line">{{ photo().shutterSpeed }}</span>
+          }
+          @if (photo().focalLength) {
+            <span class="photo-card__line">{{ photo().focalLength }}</span>
+          }
+          @if (photo().lensName) {
+            <span class="photo-card__line photo-card__line--lens">{{ photo().lensName }}</span>
+          }
+          @if (photo().cameraModel) {
+            <span class="photo-card__line">{{ photo().cameraModel }}</span>
+          }
         </span>
       </span>
     </span>

@@ -8,11 +8,12 @@ export interface Photo {
   srcFull?: string;
   title?: string;
   categoryId: string;
-  iso: string;
-  aperture: string;
-  shutterSpeed: string;
-  focalLength: string;
-  lensName: string;
+  iso?: string;
+  aperture?: string;
+  shutterSpeed?: string;
+  focalLength?: string;
+  lensName?: string;
+  cameraModel?: string;
   alt: string;
 }
 
@@ -29,4 +30,32 @@ export interface Category {
   subtitle?: string;
   photos: Photo[];
   subcategories?: Subcategory[];
+}
+
+export interface ProfileSocialItem {
+  key: string;
+  label: string;
+  value: string;
+  href?: string;
+  brandClass: string;
+}
+
+export interface ProfileContent {
+  name: string;
+  age: string;
+  bio: string | string[];
+  experience: string;
+  specializations: string[];
+  profileImagePath: string;
+  backgroundImagePath?: string;
+  heroImagePath?: string;
+  heading?: string;
+  socialLine?: string;
+  socialWebsite?: string;
+  socialItems?: ProfileSocialItem[];
+}
+
+export interface PortfolioContent {
+  profile: ProfileContent | null;
+  categories: Category[];
 }

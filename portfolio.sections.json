@@ -1,0 +1,98 @@
+{
+  "meta": {
+    "updatedAt": "2026-03-31T16:35:26.586Z",
+    "schemaVersion": 1
+  },
+  "sections": [
+    {
+      "id": "id_mneu6tqs_2cg06fw",
+      "name": "travel",
+      "caption": "wow",
+      "photos": [
+        {
+          "id": "id_mneu79cb_omaj8ik",
+          "path": "assets/portfolio/sections/id_mneu6tqs_2cg06fw/id_mneu79cb_omaj8ik.webp",
+          "metadata": {
+            "iso": 250,
+            "aperture": "f/5.6",
+            "shutterSpeed": "1/420s",
+            "focalLength": "55mm",
+            "lens": "XF18-55mmF2.8-4 R LM OIS",
+            "camera": "FUJIFILM X-T20",
+            "dateTaken": "2026-03-21T16:43:47.000Z",
+            "width": 1248,
+            "height": 2560
+          }
+        },
+        {
+          "id": "id_mneu7hx6_wz29dvj",
+          "path": "assets/portfolio/sections/id_mneu6tqs_2cg06fw/id_mneu7hx6_wz29dvj.webp",
+          "metadata": {
+            "iso": 200,
+            "aperture": "f/6.3",
+            "shutterSpeed": "1/640s",
+            "focalLength": "45mm",
+            "lens": "RF-S18-45mm F4.5-6.3 IS STM",
+            "camera": "Canon Canon EOS R100",
+            "dateTaken": "2026-03-29T07:35:06.000Z",
+            "width": 2560,
+            "height": 1707
+          }
+        }
+      ],
+      "subsections": []
+    },
+    {
+      "id": "id_mneu7pog_erj9508",
+      "name": "test",
+      "caption": "asdasd",
+      "photos": [],
+      "subsections": [
+        {
+          "id": "id_mneu84h4_r31wtmf",
+          "name": "asdasd",
+          "caption": "",
+          "photos": [
+            {
+              "id": "id_mneu8dv2_jb6nxj3",
+              "path": "assets/portfolio/sections/id_mneu7pog_erj9508/id_mneu84h4_r31wtmf/id_mneu8dv2_jb6nxj3.webp",
+              "metadata": {
+                "iso": 250,
+                "aperture": "f/5.6",
+                "shutterSpeed": "1/420s",
+                "focalLength": "55mm",
+                "lens": "XF18-55mmF2.8-4 R LM OIS",
+                "camera": "FUJIFILM X-T20",
+                "dateTaken": "2026-03-21T16:43:47.000Z",
+                "width": 1248,
+                "height": 2560
+              }
+            }
+          ]
+        },
+        {
+          "id": "id_mneu8gdt_sk7quw0",
+          "name": "asdadsasd",
+          "caption": "asdadsasd",
+          "photos": [
+            {
+              "id": "id_mneu8ngm_o8rei2a",
+              "path": "assets/portfolio/sections/id_mneu7pog_erj9508/id_mneu8gdt_sk7quw0/id_mneu8ngm_o8rei2a.webp",
+              "metadata": {
+                "iso": 200,
+                "aperture": "f/6.3",
+                "shutterSpeed": "1/640s",
+                "focalLength": "45mm",
+                "lens": "RF-S18-45mm F4.5-6.3 IS STM",
+                "camera": "Canon Canon EOS R100",
+                "dateTaken": "2026-03-29T07:35:06.000Z",
+                "width": 2560,
+                "height": 1707
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

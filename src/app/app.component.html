@@ -95,12 +95,24 @@
   </section>
 
   @if (activeAction === 'grid') {
-    <section class="all-photos">
-      <app-photo-grid [photos]="allPhotos()" />
-    </section>
+    @if (allPhotos().length) {
+      <section class="all-photos">
+        <app-photo-grid [photos]="allPhotos()" />
+      </section>
+    } @else {
+      <section class="portfolio-empty" aria-label="No sections available">
+        <p class="portfolio-empty__text">No sections available yet.</p>
+      </section>
+    }
   } @else {
-    @for (c of categories(); track c.id) {
-      <app-portfolio-section [category]="c" [horizontal]="true" />
+    @if (categories().length) {
+      @for (c of categories(); track c.id) {
+        <app-portfolio-section [category]="c" [horizontal]="true" />
+      }
+    } @else {
+      <section class="portfolio-empty" aria-label="No sections available">
+        <p class="portfolio-empty__text">No sections available yet.</p>
+      </section>
     }
   }
 </main>
