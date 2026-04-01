@@ -63,6 +63,9 @@ interface ExternalSectionsJson {
   sections?: ExternalSection[];
 }
 
+const DEFAULT_PROFILE_IMAGE = 'assets/portfolio/default-profile.svg';
+const DEFAULT_HERO_IMAGE = 'assets/portfolio/default-hero.svg';
+
 @Injectable({ providedIn: 'root' })
 export class PortfolioService {
   private readonly http = inject(HttpClient);
@@ -137,6 +140,11 @@ export class PortfolioService {
     if (!name) return null;
     const socialNormalized = this.normalizeSocialObject(profile.social);
     const socialWebsite = (profile.socialWebsite ?? socialNormalized.website ?? '').toString();
+    const profileImagePath = this.normalizeAssetPath(profile.profileImagePath, DEFAULT_PROFILE_IMAGE);
+    const heroImagePath = this.normalizeAssetPath(
+      profile.heroImagePath ?? profile.backgroundImagePath,
+      DEFAULT_HERO_IMAGE,
+    );
     return {
       name,
       age: (profile.age ?? '').toString(),
@@ -145,14 +153,19 @@ export class PortfolioService {
       specializations: Array.isArray(profile.specializations)
         ? profile.specializations
         : [],
-      profileImagePath: (profile.profileImagePath ?? '').toString(),
-      heroImagePath: (profile.heroImagePath ?? '').toString(),
-      backgroundImagePath: (profile.backgroundImagePath ?? '').toString(),
+      profileImagePath,
+      heroImagePath,
+      backgroundImagePath: heroImagePath,
       heading: (profile.heading ?? '').toString(),
       socialLine: (profile.socialLine ?? socialNormalized.line ?? '').toString(),
       socialWebsite,
       socialItems: socialNormalized.items,
     };
+  }
+
+  private normalizeAssetPath(value: unknown, fallback: string): string {
+    const path = (value ?? '').toString().trim();
+    return path || fallback;
   }
 
   private normalizeSocialObject(
